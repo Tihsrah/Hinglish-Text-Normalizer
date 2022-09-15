@@ -80,8 +80,6 @@ print(len(neg_slang))
 
 
 
-
-
 check_data=pd.read_csv(r'C:\Users\HP OMEN\Downloads\sentiment_test\sentiment_no_emoticons.csv',encoding='latin-1')
 print(check_data.iloc[:,0].unique())
 check_data=check_data[check_data.iloc[:,0] != 2]

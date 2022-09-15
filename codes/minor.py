@@ -74,10 +74,41 @@ neg_slang=neg_slang+new_neg_slang
 print(len(pos_slang))
 print(len(neg_slang))
 
+# all conversions saved to this file
+# pos=pd.DataFrame(pos)
+# pos.to_csv(r'datasets\converted\pos.csv', index=False)
+
+# neg=pd.DataFrame(neg)
+# neg.to_csv(r'datasets\converted\neg.csv', index=False)
+
+# neg_slang=pd.DataFrame(neg_slang)
+# neg_slang.to_csv(r'datasets\converted\neg_slang.csv', index=False)
+
+# stop_word=pd.DataFrame(stop_word)
+# stop_word.to_csv(r'datasets\converted\stop_word.csv', index=False)
 
 
 
+# import csv   bekar code
+# with open(r'C:\Users\HP OMEN\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\converted\stop_word.csv', 'w',encoding="utf-8", newline='') as myfile:
+#      wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+#      wr.writerow(stop_word)
 
+# with open(r'C:\Users\HP OMEN\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\converted\neg.csv', 'w',encoding="utf-8", newline='') as myfile:
+#      wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+#      wr.writerow(neg)
+
+# with open(r'C:\Users\HP OMEN\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\converted\pos.csv', 'w',encoding="utf-8", newline='') as myfile:
+#      wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+#      wr.writerow(pos)
+
+# with open(r'C:\Users\HP OMEN\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\converted\neg_slang.csv', 'w',encoding="utf-8", newline='') as myfile:
+#      wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+#      wr.writerow(neg_slang)
+
+# with open(r'C:\Users\HP OMEN\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\converted\pos_slang.csv', 'w',encoding="utf-8", newline='') as myfile:
+#      wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+#      wr.writerow(pos_slang)
 
 
 # C:\Users\HP OMEN\Downloads\output.csv
