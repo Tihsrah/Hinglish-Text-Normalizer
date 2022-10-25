@@ -1,12 +1,15 @@
+from  minor_hinglish import text_temp 
+
+
 import re
 import string
 import pandas as pd
 import emoji
 from nltk.stem import WordNetLemmatizer
 
-inappropriate=pd.read_csv(r'C:\Users\HP OMEN\Downloads\archive\Inappropriate words classification.csv')
-pos_neg=pd.read_excel(r'C:\Users\HP OMEN\Downloads\pos_neg\Positive and Negative Word List.xlsx')
-stop_word=pd.read_csv(r'C:\Users\HP OMEN\Downloads\stopwords-en-master\stopwords-en-master\stopwords-en.txt').iloc[:,0].tolist()
+inappropriate=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Inappropriate words classification.csv')
+pos_neg=pd.read_excel(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Positive and Negative Word List.xlsx')
+stop_word=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\stopwords-en-master\stopwords-en.txt').iloc[:,0].tolist()
 neg=pos_neg['Negative Sense Word List'].dropna().tolist()
 pos=pos_neg['Positive Sense Word List'].dropna().tolist()
 
@@ -27,7 +30,9 @@ for i in stop_word:
 # lemmatizing the datasets.
 lemmatizer=WordNetLemmatizer()
 
-text=input()
+# text=input()
+print(text_temp)
+text=text_temp
 
 # converting emoji to its meaning
 non_emoji=emoji.demojize(text)

@@ -5,9 +5,9 @@ import emoji
 from nltk.stem import WordNetLemmatizer
 from tqdm import tqdm 
 
-inappropriate=pd.read_csv(r'C:\Users\HP OMEN\Downloads\archive\Inappropriate words classification.csv')
-pos_neg=pd.read_excel(r'C:\Users\HP OMEN\Downloads\pos_neg\Positive and Negative Word List.xlsx')
-stop_word=pd.read_csv(r'C:\Users\HP OMEN\Downloads\stopwords-en-master\stopwords-en-master\stopwords-en.txt').iloc[:,0].tolist()
+inappropriate=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Inappropriate words classification.csv')
+pos_neg=pd.read_excel(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Positive and Negative Word List.xlsx')
+stop_word=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\stopwords-en-master\stopwords-en.txt').iloc[:,0].tolist()
 neg=pos_neg['Negative Sense Word List'].dropna().tolist()
 pos=pos_neg['Positive Sense Word List'].dropna().tolist()
 
@@ -112,7 +112,7 @@ print(len(neg_slang))
 
 
 # C:\Users\HP OMEN\Downloads\output.csv
-check_data=pd.read_csv(r'C:\Users\HP OMEN\Downloads\output.csv')
+check_data=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\output.csv')
 check_data_val=check_data.iloc[:,1].tolist()
 
 test_data=check_data.iloc[:,0].tolist()
