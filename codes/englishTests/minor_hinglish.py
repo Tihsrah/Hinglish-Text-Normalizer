@@ -196,7 +196,7 @@ pos_hinglish_new=pos_hinglish_new.iloc[:,0].tolist()
 
 
 stop_word_hin_new=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\converted\stop_word_hin_new.csv')
-# neg_hin_new=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\converted\neg_hin_new.csv')
+neg_hin_new=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\converted\neg_hin_new.csv')
 pos_hin_new=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\converted\pos_hin_new.csv')
 # neg_slang_hinglish=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\converted\neg_slang_hinglish.csv')
 
@@ -216,6 +216,9 @@ for i in range(len(text)):
     elif text[i] in pos_hinglish_new:
         idx=pos_hinglish_new.index(text[i])
         temp.append(pos_hin_new[idx])
+    elif text[i] in neg_hinglish_new:
+        idx=neg_hinglish_new.index(text[i])
+        temp.append(neg_hin_new[idx])
 print(temp)
 temp_new=[]
 text_temp=""
