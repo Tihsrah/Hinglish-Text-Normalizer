@@ -1,4 +1,4 @@
-from  minor_hinglish import text_temp 
+# from  minor_hinglish import text_temp 
 
 
 import re
@@ -30,9 +30,9 @@ for i in stop_word:
 # lemmatizing the datasets.
 lemmatizer=WordNetLemmatizer()
 
-# text=input()
-print(text_temp)
-text=text_temp
+text=input()
+# print(text_temp)
+# text=text_temp
 
 # converting emoji to its meaning
 non_emoji=emoji.demojize(text)

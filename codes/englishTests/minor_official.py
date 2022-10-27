@@ -27,7 +27,7 @@ data=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment
 
 df1=pd.read_csv(r'texts.csv')
 
-print(df1)
+# print(df1)
 
 # for i in tqdm(range(5)):
 
@@ -70,4 +70,19 @@ def clean_tweet(tweet):
 
 df1['Text']=df1['Text'].apply(clean_tweet)
 
-print(df1['Text'])
+print(df1['Text'].iloc[0])
+import Levenshtein
+from  minor_hinglish import adjacency_data
+print(adjacency_data)
+m=9999999
+from pyphonetics import RefinedSoundex
+rs = RefinedSoundex()
+
+
+# for i in adjacency_data:
+#     # m=Levenshtein.distance('ka',i)
+#     # print(m,i)
+#     if(len(i)<4):
+#         print(rs.distance(i,'ka'),i)
+    # pass
+# print(adjacency_data)

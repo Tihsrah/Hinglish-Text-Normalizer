@@ -201,29 +201,35 @@ pos_hin_new=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Se
 # neg_slang_hinglish=pd.read_csv(r'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\converted\neg_slang_hinglish.csv')
 
 stop_word_hin_new=stop_word_hin_new.iloc[:,0].tolist()
-# neg_hin_new=neg_hin_new.iloc[:,0].tolist()
+neg_hin_new=neg_hin_new.iloc[:,0].tolist()
 pos_hin_new=pos_hin_new.iloc[:,0].tolist()
 
+
+# running example
+'''
 print(pos_hinglish_new[12])
 print(pos_hin_new[12])
 
 text=input().split()
-temp=[]
+hing_to_hin=[]
 for i in range(len(text)):
     if text[i] in stop_word_hinglish_new:
         idx=stop_word_hinglish_new.index(text[i])
-        temp.append(stop_word_hin_new[idx])
+        hing_to_hin.append(stop_word_hin_new[idx])
     elif text[i] in pos_hinglish_new:
         idx=pos_hinglish_new.index(text[i])
-        temp.append(pos_hin_new[idx])
+        hing_to_hin.append(pos_hin_new[idx])
     elif text[i] in neg_hinglish_new:
         idx=neg_hinglish_new.index(text[i])
-        temp.append(neg_hin_new[idx])
-print(temp)
+        hing_to_hin.append(neg_hin_new[idx])
+
+
+
+print(hing_to_hin)
 temp_new=[]
 text_temp=""
 
-for i in temp:
+for i in hing_to_hin:
    
   # concatenating the strings
   # using + operator
@@ -233,3 +239,62 @@ print(text_temp)
 
 text_temp=translator.translate(text_temp).text
 print(text_temp)
+'''
+# removing duplicates from vocabulary
+# duplicates stopwords
+temp_no_duplicate_hinglish_stopword=[]
+temp_no_duplicate_hindi_stopword=[]
+
+for i in range(len(stop_word_hinglish_new)):
+  if stop_word_hinglish_new[i] not in temp_no_duplicate_hinglish_stopword:
+    temp_no_duplicate_hinglish_stopword.append(stop_word_hinglish_new[i])
+    temp_no_duplicate_hindi_stopword.append(stop_word_hin_new[i])
+
+stop_word_hinglish_new=temp_no_duplicate_hinglish_stopword
+stop_word_hin_new=temp_no_duplicate_hindi_stopword
+
+# duplicates positives
+# print(pos_hinglish_new)
+
+temp_no_duplicate_hinglish_pos=[]
+temp_no_duplicate_hindi_pos=[]
+
+for i in range(len(pos_hinglish_new)):
+  if pos_hinglish_new[i] not in temp_no_duplicate_hinglish_pos:
+    temp_no_duplicate_hinglish_pos.append(pos_hinglish_new[i])
+    temp_no_duplicate_hindi_pos.append(pos_hin_new[i])
+
+pos_hinglish_new=temp_no_duplicate_hinglish_pos
+pos_hin_new=temp_no_duplicate_hindi_pos
+# print(pos_hinglish_new)
+
+
+
+
+
+# duplicates negatives
+temp_no_duplicate_hinglish_neg=[]
+temp_no_duplicate_hindi_neg=[]
+
+for i in range(len(neg_hinglish_new)):
+  if neg_hinglish_new[i] not in temp_no_duplicate_hinglish_neg:
+    temp_no_duplicate_hinglish_neg.append(neg_hinglish_new[i])
+    temp_no_duplicate_hindi_neg.append(neg_hin_new[i])
+
+neg_hinglish_new=temp_no_duplicate_hinglish_neg
+neg_hin_new=temp_no_duplicate_hindi_neg
+
+from  minor_methods import *
+adjacency_data=[]
+for i in stop_word_hinglish_new:
+  adjacency_data.append(i)
+for i in pos_hinglish_new:
+  adjacency_data.append(i)
+for i in neg_hinglish_new:
+  adjacency_data.append(i)
+
+adjacency_data=set(adjacency_data)
+
+adjacency_data=create_dictionary(adjacency_data)
+
+
