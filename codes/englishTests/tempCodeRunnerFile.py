@@ -1,2 +1,1 @@
-.distance('ka',i),m)
-    print(m,i)
+rs.distance(i,'ka')

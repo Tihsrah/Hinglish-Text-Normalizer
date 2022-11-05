@@ -7,9 +7,9 @@ from tqdm import tqdm
 
 
 
-inappropriate=pd.read_csv(r'C:\Users\HP OMEN\Downloads\archive\Inappropriate words classification.csv')
-pos_neg=pd.read_excel(r'C:\Users\HP OMEN\Downloads\pos_neg\Positive and Negative Word List.xlsx')
-stop_word=pd.read_csv(r'C:\Users\HP OMEN\Downloads\stopwords-en-master\stopwords-en-master\stopwords-en.txt').iloc[:,0].tolist()
+inappropriate=pd.read_csv(r"C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Inappropriate words classification.csv")
+pos_neg=pd.read_excel(r"C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Positive and Negative Word List.xlsx")
+stop_word=pd.read_csv(r"C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\stopwords-en-master\stopwords-en.txt").iloc[:,0].tolist()
 neg=pos_neg['Negative Sense Word List'].dropna().tolist()
 pos=pos_neg['Positive Sense Word List'].dropna().tolist()
 
@@ -80,7 +80,7 @@ print(len(neg_slang))
 
 
 
-check_data=pd.read_csv(r'C:\Users\HP OMEN\Downloads\sentiment_test\sentiment_no_emoticons.csv',encoding='latin-1')
+check_data=pd.read_csv(r"C:\Users\harsh\Downloads\archive\sentiment_no_emoticons.csv",encoding='latin-1')
 print(check_data.iloc[:,0].unique())
 check_data=check_data[check_data.iloc[:,0] != 2]
 print(len(check_data))
@@ -115,6 +115,7 @@ for i in tqdm(range(len(test_data))):
 
     # removal of stop words
     text=no_newline.split()
+    print(text)
     temp_text=[]
     for i in text:
         if i in stop_word:

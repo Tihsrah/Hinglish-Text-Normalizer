@@ -296,5 +296,3 @@ for i in neg_hinglish_new:
 adjacency_data=set(adjacency_data)
 
 adjacency_data=create_dictionary(adjacency_data)
-
-
