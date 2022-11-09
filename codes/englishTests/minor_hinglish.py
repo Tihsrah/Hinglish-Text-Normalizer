@@ -24,6 +24,7 @@ stop_word_hin=[]
 
 translator = Translator()
 
+# translation
 
 # for i in pos:
 
@@ -294,5 +295,6 @@ for i in neg_hinglish_new:
   adjacency_data.append(i)
 
 adjacency_data=set(adjacency_data)
-
+print(len(adjacency_data))
 adjacency_data=create_dictionary(adjacency_data)
+print(adjacency_data)

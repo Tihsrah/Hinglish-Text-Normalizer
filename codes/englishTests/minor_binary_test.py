@@ -34,6 +34,7 @@ for i in stop_word:
 # lemmatizing the datasets.
 lemmatizer=WordNetLemmatizer()
 pos_new=[]
+print(pos)
 for i in tqdm(pos):
     pos_new.append(lemmatizer.lemmatize(i))
 pos=pos+pos_new

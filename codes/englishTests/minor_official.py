@@ -70,7 +70,7 @@ def clean_tweet(tweet):
     return text
 
 df1['Text']=df1['Text'].apply(clean_tweet)
-print(df1['Text'].iloc[10])
+print(df1['class'])
 test_text="mai thak gya hu"
 # print(test_text)
 import Levenshtein
@@ -83,17 +83,19 @@ for i in list(adjacency_data):
         del adjacency_data[i]
 
 print(adjacency_data)
+saved=[]
 for i in adjacency_data:
     # m=Levenshtein.distance('ka',i)
     # print(m,i)
     # if(len(i)<4):
     try:
-        print(rs.distance(i,'ka'),i)
+        saved.append(rs.distance(i,'aagaman'))
+        saved.append(i)
     except:
         print("exception occured")
     # pass
 # print(adjacency_data)
-
+print(saved[1566])
 
 
 
