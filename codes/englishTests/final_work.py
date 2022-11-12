@@ -68,11 +68,9 @@ def clean_tweet(tweet):
     text=re.sub("[^a-zA-Z]"," ",text)
     text=re.sub(r'\bRT\b',' ',text)
     text=re.sub(r'\bnan\b',' ',text)
-
-
     return text
 
-df1=pd.read_csv(r'texts.csv')
+df1=pd.read_csv(r'timepass.csv')
 df1['Text']=df1['Text'].apply(clean_tweet)
 total_text=df1['Text'].tolist()
 total_translated=[]
@@ -182,7 +180,10 @@ for i in tqdm(total_text):
 
     for i in range(len(classify)):
         if classify[i]=='en':
-            normalized_string[i]=translator.translate(normalized_string[i] ,src='en',dest='hi').text
+            try:
+                normalized_string[i]=translator.translate(normalized_string[i] ,src='en',dest='hi').text
+            except:
+                normalized_string[i]="delete"
     # print(normalized_string)
 
 
@@ -199,8 +200,11 @@ for i in tqdm(total_text):
     sentence.append(string)
     translated=[]
     for i in tqdm(sentence):
-        translated_text = translator.translate(i ,src='hi',dest='en')
-        translated.append(translated_text.text)
+        try:
+            translated_text = translator.translate(i ,src='hi',dest='en')
+            translated.append(translated_text.text)
+        except:
+            translated.append("delete")
     # print(translated)
     total_translated.append(translated[0])
     # inv_trn = Transliterator(source='hin', target='eng')
