@@ -211,8 +211,9 @@ for i in tqdm(total_text):
 
 
     # finding phoneme and leventise distance for unchanged word
-    try:
-        for i in range(len(not_changed_idx)):
+    
+    for i in range(len(not_changed_idx)):
+        try:
             if not_changed_idx[i]==0:
                 eng_phoneme_correction=[]
                 for j in english_vocab:
@@ -274,8 +275,8 @@ for i in tqdm(total_text):
 
 
                 normalized_string2[i]=suggestion[min_suggestion_idx]
-    except:
-        pass
+        except:
+            pass
     normalized_string=normalized_string2
 
 
