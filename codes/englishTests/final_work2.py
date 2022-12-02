@@ -14,7 +14,7 @@ import re
 
 dictn = enchant.Dict("en_US")
 rs = RefinedSoundex()
-
+normalized_string_final=[]
 translator = Translator()
 trn = Transliterator(source='eng', target='hin')
 
@@ -38,14 +38,20 @@ def clean_tweet(tweet):
     text=re.sub(r'\bnan\b',' ',text)
     return text
 
-df1=pd.read_csv(r'timepass.csv')
-df1['Text']=df1['Text'].apply(clean_tweet)
-total_text=df1['Text'].tolist()
+df1=pd.read_csv(r"C:\Users\harsh\Downloads\dataset\test.csv")
+# df1=pd.read_csv(r'timepass.csv')
+# df1['Text']=df1['Text'].apply(clean_tweet)
+# df1['Text']=df1['Text'].apply(clean_tweet)
+# total_text=df1['Text'].tolist()
+# total_text=total_text[100:200]
+
+total_text=df1.iloc[:,0].tolist()
+
 total_translated=[]
 # print(english_vocab["of"])
 for i in tqdm(total_text):
     test_text=i.split()
-    
+
     # english word change from vocab
     not_changed_idx=[]
     for i in range(len(test_text)):
@@ -206,7 +212,7 @@ for i in tqdm(total_text):
     for i in changed_idx:
         normalized_string2.append(res[i])
 
-    # print(normalized_string2)
+    print(normalized_string2)
     # print(not_changed_idx)
 
 
@@ -278,8 +284,10 @@ for i in tqdm(total_text):
         except:
             pass
     normalized_string=normalized_string2
-
-
+    normalized_string_final=normalized_string2
+# normalized_string_final=pd.DataFrame(normalized_string_final)
+# normalized_string_final.to_csv("normalized_string_final.csv", index=False)    
+    print(normalized_string)
 
 
     # changed_text2=[]
@@ -321,7 +329,7 @@ for i in tqdm(total_text):
 
 
     conversion_list=[]
-    c=0
+
     for i in tqdm(normalized_string):
         conversion_list.append(trn.transform(i))
     # print(conversion_list)
@@ -329,7 +337,7 @@ for i in tqdm(total_text):
     string=""
     sentence=[]
     for i in conversion_list:
-        string=string+' '+i
+        string=i+' '+string
     sentence.append(string)
     translated=[]
     for i in tqdm(sentence):

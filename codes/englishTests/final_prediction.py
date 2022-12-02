@@ -15,7 +15,7 @@ import re
 # df1=pd.read_csv(r'timepass.csv')
 # df1['Text']=df1['Text'].apply(clean_tweet)
 # text=df1['Text'].tolist()
-label=pd.read_csv('labels.csv')
+label=pd.read_csv('labels2.csv')
 label=label.iloc[:,0].tolist()
 changed_label=[]
 for i in label:
