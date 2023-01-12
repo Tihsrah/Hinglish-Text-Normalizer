@@ -15,7 +15,7 @@ import re
 # df1=pd.read_csv(r'timepass.csv')
 # df1['Text']=df1['Text'].apply(clean_tweet)
 # text=df1['Text'].tolist()
-label=pd.read_csv('labels2.csv')
+label=pd.read_csv('labels.csv')
 label=label.iloc[:,0].tolist()
 changed_label=[]
 for i in label:
@@ -33,5 +33,5 @@ correct=0
 for i in range(len(changed_label)):
     if original_label[i]==changed_label[i]:
         correct=correct+1
-print(correct)
-print(correct/total)
+print("correct predictions :",correct)
+print("Accuracy : ",correct/total)

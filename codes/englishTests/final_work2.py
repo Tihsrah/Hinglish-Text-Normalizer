@@ -38,18 +38,19 @@ def clean_tweet(tweet):
     text=re.sub(r'\bnan\b',' ',text)
     return text
 
-df1=pd.read_csv(r"C:\Users\harsh\Downloads\dataset\test.csv")
+# df1=pd.read_csv(r"C:\Users\harsh\Downloads\dataset\test.csv")
 # df1=pd.read_csv(r'timepass.csv')
 # df1['Text']=df1['Text'].apply(clean_tweet)
 # df1['Text']=df1['Text'].apply(clean_tweet)
 # total_text=df1['Text'].tolist()
 # total_text=total_text[100:200]
 
-total_text=df1.iloc[:,0].tolist()
+# total_text=df1.iloc[:,0].tolist()
 
 total_translated=[]
 # print(english_vocab["of"])
-for i in tqdm(total_text):
+test_text=["tum bhai kaise ho all good?"]
+for i in tqdm(test_text):
     test_text=i.split()
 
     # english word change from vocab
@@ -59,7 +60,7 @@ for i in tqdm(total_text):
     
     changed_text=[]
     changed_idx=[]
-    # print("1st",changed_text)
+    print("1st",changed_text)
     for i in range(len(test_text)):
 
         for key in english_vocab:
@@ -67,7 +68,7 @@ for i in tqdm(total_text):
             for val in  english_vocab[key]:
                 if(test_text[i]==val):
                     # print("KEY = ",key,"VAL =",val,"i =",test_text[i],"ADJENCENCY_DATA =",adjacency_data[key])
-                    # print(key,val,test_text[i])
+                    print("yahan par",key,val,test_text[i])
                     changed_text.append(key)
                     changed_idx.append(i)
                     not_changed_idx[i]=1
@@ -102,8 +103,8 @@ for i in tqdm(total_text):
     #         idx=test_text.index(i)
     #         changed_text.insert(idx,i)
     #         changed_idx.insert(idx,idx)
-    # print(changed_text)
-    # print(changed_idx)
+    print(changed_text)
+    print(changed_idx)
         
 
     # for key in english_vocab:
@@ -121,7 +122,7 @@ for i in tqdm(total_text):
 
     # making changed text and idx to a dictionary with two lists
     res = dict(zip(changed_idx, changed_text))
-    # print(res)
+    print(res)
     for i in range(len(test_text)):
         try:
             normalized_string.append(res[i])
@@ -140,11 +141,11 @@ for i in tqdm(total_text):
             hinglish_text_part.append(test_text[i])
         except:
             pass
-    # print(hinglish_text_part)
+    print(hinglish_text_part)
 
     changed_text2=[]
     changed_idx2=[]
-    # print("1st hing",changed_text2)
+    print("1st hing",changed_text2)
     for i in range(len(hinglish_text_part)):
 
         for key in hinglish_vocab:
@@ -152,7 +153,7 @@ for i in tqdm(total_text):
             for val in  hinglish_vocab[key]:
                 if(hinglish_text_part[i]==val):
                     # print("KEY = ",key,"VAL =",val,"i =",test_text[i],"ADJENCENCY_DATA =",adjacency_data[key])
-                    # print(key,val,hinglish_text_part[i])
+                    print(key,val,hinglish_text_part[i])
                     changed_text2.append(key)
                     changed_idx2.append(i)
                     not_changed_idx[i]=1
@@ -197,23 +198,23 @@ for i in tqdm(total_text):
 
     # making changed text and idx to a dictionary with two lists
     normalized_string2=[]
-    # print("changed_text 2 ",changed_text2)
+    print("changed_text 2 ",changed_text2)
     res2 = dict(zip(changed_idx2, changed_text2))
-    # print(res2)
+    print(res2)
     for i in range(len(hinglish_text_part)):
         try:
             normalized_string2.append(res2[i])
         except:
             normalized_string2.append(hinglish_text_part[i])
-    # print("normalised string 2 :",normalized_string2)
+    print("normalised string 2 :",normalized_string2)
     changed_idx=list(set(changed_idx))
     changed_idx.sort()
-    # print("changed idx",changed_idx)
+    print("changed idx",changed_idx)
     for i in changed_idx:
         normalized_string2.append(res[i])
 
     print(normalized_string2)
-    # print(not_changed_idx)
+    print(not_changed_idx)
 
 
     # finding phoneme and leventise distance for unchanged word
@@ -235,8 +236,8 @@ for i in tqdm(total_text):
                     dist=lev(normalized_string2[i],k)
                     if dist <=2:
                         eng_lev_correction.append(k)
-                # print(eng_phoneme_correction)
-                # print(eng_lev_correction)
+                print(eng_phoneme_correction)
+                print(eng_lev_correction)
 
 
                 hing_phoneme_correction=[]
@@ -252,14 +253,14 @@ for i in tqdm(total_text):
                     dist=lev(normalized_string2[i],k)
                     if dist <=2:
                         hing_lev_correction.append(k)
-                # print(hing_phoneme_correction)
-                # print(hing_lev_correction)
+                print(hing_phoneme_correction)
+                print(hing_lev_correction)
 
                 eng_lev_correction.extend(hing_lev_correction)
                 new_correction=eng_lev_correction
                 eng_lev_correction=[]
                 # hing_lev_correction=[]
-                # print(eng_lev_correction)
+                print(eng_lev_correction)
                 
                 for l in new_correction:
                     dist=lev(normalized_string2[i],l)
@@ -275,8 +276,8 @@ for i in tqdm(total_text):
                     suggestion_lit.append(dist)
                 min_suggestion_val=min(suggestion_lit)
                 min_suggestion_idx=suggestion_lit.index(min_suggestion_val)
-
-                # print(suggestion[min_suggestion_idx])
+                print("Suggestions : ",min_suggestion_val)
+                print(suggestion[min_suggestion_idx])
 
 
 
@@ -316,8 +317,8 @@ for i in tqdm(total_text):
     for i in normalized_string:
         test_classify=classifier(i)
         classify.append(test_classify[0].get("label"))
-    # print(normalized_string)
-    # print(classify)
+    print(normalized_string)
+    print(classify)
 
     for i in range(len(classify)):
         if classify[i]=='en':
@@ -325,14 +326,14 @@ for i in tqdm(total_text):
                 normalized_string[i]=translator.translate(normalized_string[i] ,src='en',dest='hi').text
             except:
                 normalized_string[i]="delete"
-    # print(normalized_string)
+    print(normalized_string)
 
 
     conversion_list=[]
 
     for i in tqdm(normalized_string):
         conversion_list.append(trn.transform(i))
-    # print(conversion_list)
+    print(conversion_list)
 
     string=""
     sentence=[]
@@ -346,7 +347,7 @@ for i in tqdm(total_text):
             translated.append(translated_text.text)
         except:
             translated.append("delete")
-    # print(translated)
+    print(translated)
     total_translated.append(translated[0])
     # inv_trn = Transliterator(source='hin', target='eng')
     # for i in tqdm(conversion_list):

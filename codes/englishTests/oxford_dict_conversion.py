@@ -3,8 +3,9 @@ from googletrans import Translator
 from tqdm import tqdm
 from indictrans import Transliterator
 import csv
-alpha=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-dictionary_all=[]
+alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+         "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+dictionary_all = []
 for j in range(len(alpha)):
     print(alpha[j])
     # dictionary=pd.read_csv(rf"C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Dictionary_hindi_new\{alpha[j]}word_hin_new.csv", engine="python", sep=',', quotechar='"', error_bad_lines=False,encoding="utf8")
@@ -13,7 +14,6 @@ for j in range(len(alpha)):
     # dictionary=dictionary.iloc[:,0].tolist()
     # translator = Translator()
     # dictionary_translated=[]
-    
 
     # # # duplicates stopwords
     # duplicate_dictionary=[]
@@ -33,7 +33,7 @@ for j in range(len(alpha)):
     #     try:
     #         translated_text = translator.translate(i ,src='en',dest='hi')
     #         dictionary_translated.append(translated_text.text)
-    #     except Exception as e: 
+    #     except Exception as e:
     #         # translator.raise_Exception = True
     #         print(e)
     # dictionary_translated=pd.DataFrame(dictionary_translated)
@@ -46,7 +46,7 @@ for j in range(len(alpha)):
     # for i in tqdm(dictionary):
     #     res=inv_trn.transform(i)
     #     transliterated_dictionary.append(res)
-        
+
     # transliterated_dictionary=pd.DataFrame(transliterated_dictionary)
     # transliterated_dictionary.to_csv(rf"C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Dictionary_hinglish_new\{alpha[j]}word_hinglish_new.csv", index=False)
 
@@ -61,7 +61,7 @@ for j in range(len(alpha)):
     #             fhw=open(rf"C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Dictionary_hinglish_new\{alpha[j]}word_hinglish_new.csv",'a')
     #             fhw.write(k+'\n')
     #             fhw.close()
-    
+
     # converting multispaced hindi data to one word data
     # with open(rf"C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Dictionary_hindi\{alpha[j]}word_hin.csv",encoding='utf-8') as dictionary_hinglish:
     #     reader_obj = csv.reader(dictionary_hinglish)
@@ -74,10 +74,9 @@ for j in range(len(alpha)):
     #             fhw.write(k+'\n')
     #             fhw.close()
 
-    
     # dictionary_hinglish_new=pd.read_csv(rf"C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Dictionary_hinglish\{alpha[j]}word_hinglish.csv")
     # dictionary_hindi_new=pd.read_csv(rf"C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Dictionary_hindi\{alpha[j]}word_hin.csv",encoding='utf-8')
-    
+
     # print(len(dictionary_hinglish_new))
     # print(len(dictionary_hindi_new))
 
@@ -101,6 +100,5 @@ for j in range(len(alpha)):
 
     # dictionary_hinglish_new.to_csv(rf'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Dictionary_hinglish_new\{alpha[j]}word_hinglish_new.csv', index=False)
     # dictionary_hindi_new.to_csv(rf'C:\Users\harsh\OneDrive - UPES\Desktop\d_drive\NNST-Sentiment-Analyser\datasets\Dictionary_hindi_new\{alpha[j]}word_hindi_new.csv', index=False)
-
 
     # print("new",len(dictionary_hinglish_new))

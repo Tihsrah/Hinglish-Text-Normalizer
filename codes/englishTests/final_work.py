@@ -74,20 +74,20 @@ df1=pd.read_csv(r'timepass.csv')
 df1['Text']=df1['Text'].apply(clean_tweet)
 total_text=df1['Text'].tolist()
 total_translated=[]
-# test_text="mai tak gya hu brather and sistar actally"
-for i in tqdm(total_text):
+test_text=["tum bhai kaise ho all good?"]
+for i in tqdm(test_text):
     test_text=i.split()
     # print(test_text)
     changed_text=[]
     changed_idx=[]
-    # print(changed_text)
+    print(changed_text)
     for i in range(len(test_text)):
         for key in english_vocab:
             done=0
             for val in  english_vocab[key]:
                 if(test_text[i]==val):
                     # print("KEY = ",key,"VAL =",val,"i =",test_text[i],"ADJENCENCY_DATA =",adjacency_data[key])
-                    # print(key,val)
+                    print(key,val)
                     changed_text.append(key)
                     changed_idx.append(i)
                     done=1
@@ -96,10 +96,13 @@ for i in tqdm(total_text):
             if done==1:
                 # print("breaking again")
                 break
+    print(changed_text)
+    print(changed_idx)
     for i in test_text:
         for j in changed_text:
             dist=lev(i,j)
-            # print(dist)
+            print(i,j)
+            print(dist)
             if i not in changed_text and dist>=2:
                 for key in hinglish_vocab:
                     done=0
@@ -108,13 +111,19 @@ for i in tqdm(total_text):
                             idx=test_text.index(i)
                             changed_text.insert(idx,key)
                             changed_idx.insert(idx,idx)
+                            # print("hinglish distance wala")
+                            # print("abhi ye dekh rha hu",i,val)
+                            # print(idx)
+
+                            # print(changed_text)
+                            # print(changed_idx)
                             done=1
                             break
                     if done==1:
                         break
             break
-    # print(changed_text)
-    # print(changed_idx)
+    print(changed_text)
+    print(changed_idx)
     # for i in test_text:
     #     if i not in changed_text:
     #         idx=test_text.index(i)
@@ -141,13 +150,13 @@ for i in tqdm(total_text):
             res[key] = value
             changed_text.remove(value)
             break
-    # print(res)
+    print(res)
     for i in range(len(res)):
         try:
             normalized_string.append(res[i])
         except:
             normalized_string.append(test_text[i])
-    # print(normalized_string)
+    print(normalized_string)
 
     # changed_text2=[]
     # changed_idx2=[]
@@ -175,8 +184,8 @@ for i in tqdm(total_text):
     for i in normalized_string:
         test_classify=classifier(i)
         classify.append(test_classify[0].get("label"))
-    # print(normalized_string)
-    # print(classify)
+    print(normalized_string)
+    print(classify)
 
     for i in range(len(classify)):
         if classify[i]=='en':
@@ -184,14 +193,14 @@ for i in tqdm(total_text):
                 normalized_string[i]=translator.translate(normalized_string[i] ,src='en',dest='hi').text
             except:
                 normalized_string[i]="delete"
-    # print(normalized_string)
+    print(normalized_string)
 
 
     conversion_list=[]
     c=0
     for i in tqdm(normalized_string):
         conversion_list.append(trn.transform(i))
-    # print(conversion_list)
+    print(conversion_list)
 
     string=""
     sentence=[]
@@ -205,11 +214,11 @@ for i in tqdm(total_text):
             translated.append(translated_text.text)
         except:
             translated.append("delete")
-    # print(translated)
+    print(translated)
     total_translated.append(translated[0])
     # inv_trn = Transliterator(source='hin', target='eng')
     # for i in tqdm(conversion_list):
     #     translated.append(inv_trn.transform(i))
-    # print(translated)
+    print(translated)
 total_translated=pd.DataFrame(total_translated)
 total_translated.to_csv("total_translated.csv", index=False)
