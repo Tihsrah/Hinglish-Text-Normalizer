@@ -36,3 +36,5 @@ https://www.kaggle.com/code/tihsrahly/train-15000-end
 Datasets :
 
 https://www.kaggle.com/tihsrahly/datasets
+
+Note : Some models are stored in UPES_STUDENT_ONE_DRIVE in NNST_SENTIMENT_ANALYSIS folder.
