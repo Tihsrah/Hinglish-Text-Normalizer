@@ -14,3 +14,24 @@ so our project adds to this research for further classification tasks that can b
 For the ease of writing reviews, people in India prefer to pen down their opinions in Hinglish rather than just English or Hindi. Our technique processes and
 analysis such Hinglish datasets using technologies like Python, Scikit learn and transformers (for future purposes), and libraries like Indic translate, Indic 
 transliterate, Nltk, Pandas, Regex and Enchant.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Some important colab files which contains experiments :
+(These are not in order)
+https://colab.research.google.com/drive/16vS_HvgSyM-g4MJ6si2iKUObRuBMkOtr
+https://colab.research.google.com/drive/1D9RWkX4QZ0idughQw2E-0lqPUOwg4v4N
+https://colab.research.google.com/drive/1s969YqJY6o4qgwvnfFp9ms5CvNXVtDkr
+https://colab.research.google.com/drive/1SFv51Cq2J8hXgh_7caHjc8KashsldkZ8
+https://colab.research.google.com/drive/1vwVGzFVr0Ds9yA33TyUM_Sjgj5lXtHo2
+
+Some important kaggle file :
+https://www.kaggle.com/code/tihsrahly/scrapped-test-000-100
+https://www.kaggle.com/code/tihsrahly/pppm-deberta-v3-large-baseline-w-w-b-tr-c9dbd3
+https://www.kaggle.com/code/tihsrahly/train-15000-end
+
+(There are other files as well, must see my notebooks)
+
+Datasets :
+
+https://www.kaggle.com/tihsrahly/datasets
