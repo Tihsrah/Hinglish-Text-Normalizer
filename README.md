@@ -15,6 +15,8 @@ For the ease of writing reviews, people in India prefer to pen down their opinio
 analysis such Hinglish datasets using technologies like Python, Scikit learn and transformers (for future purposes), and libraries like Indic translate, Indic 
 transliterate, Nltk, Pandas, Regex and Enchant.
 
+Live Link : https://huggingface.co/spaces/Tihsrah/Hinglish-Text-Normalizer
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Some important colab files which contains experiments :
