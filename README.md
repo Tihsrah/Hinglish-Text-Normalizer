@@ -16,6 +16,9 @@ analysis such Hinglish datasets using technologies like Python, Scikit learn and
 transliterate, Nltk, Pandas, Regex and Enchant.
 
 Live Link : https://huggingface.co/spaces/Tihsrah/Hinglish-Text-Normalizer
+Report : https://docs.google.com/document/d/1zcWExfY3fAOs7_fk4mGStY6Pk8YacExC8IGu-up2YXg/edit?usp=sharing
+SRS : https://docs.google.com/document/d/1oqa0pW-DE09NmIxdcSnAFK6rATl6CKLfNi7Z5qfr0QU/edit?usp=sharing
+PPT : https://docs.google.com/presentation/d/1nUFjB7_eIP9LM4FNkx6NwMtUk4pmbEId/edit?usp=sharing&ouid=108095548513010025067&rtpof=true&sd=true
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
